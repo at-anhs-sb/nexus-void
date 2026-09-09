@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090914">
+  <title>Nexus Void</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-time-theme="night">
+
+  <div class="void-shell">
+
+<header class="void-header">
+  <div class="void-logo-wrap">
+    <img
+      src="https://images.chesscomfiles.com/uploads/v1/group/714353.43bd16ea.160x160o.04fbfbc95fb3@2x.gif"
+      alt="Nexus Void"
+      class="void-logo"
+    >
+
+    <div class="void-brand">
+      <span class="void-brand-main">NEXUS VOID</span>
+      <span class="void-brand-sub">CHESS NETWORK</span>
+    </div>
+  </div>
+
+  <div class="void-status">
+    <span class="status-dot"></span>
+    <span id="connectionStatus">ONLINE</span>
+  </div>
+</header>
+
+<main class="void-main">
+
+  <section class="void-section" id="matchesSection">
+
+    <div class="section-heading">
+      <span class="section-index">01</span>
+      <div>
+        <h2>MATCHES</h2>
+        <p>CLUB ACTIVITY</p>
+      </div>
+    </div>
+
+    <div class="match-calendar-card">
+      <div class="calendar-card-header">
+        <span>UPCOMING</span>
+        <span id="calendarStatus">LOADING</span>
+      </div>
+
+      <div id="calendarContainer" class="calendar-container">
+        <div class="calendar-loading">
+          SYNCHRONIZING CALENDAR
+        </div>
+      </div>
+    </div>
+
+    <div class="recent-matches">
+
+      <div class="subsection-heading">
+        <span>RECENT ACTIVITY</span>
+        <span id="matchCount">00</span>
+      </div>
+
+      <div id="matchList" class="match-list">
+
+        <div class="match-loading">
+          <span class="loading-bar"></span>
+          <span>LOADING MATCH DATA</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="void-section" id="socialsSection">
+
+    <div class="section-heading">
+      <span class="section-index">02</span>
+      <div>
+        <h2>SOCIALS</h2>
+        <p>CLUB STATUS</p>
+      </div>
+    </div>
+
+    <div class="member-card">
+
+      <div class="member-card-top">
+        <span>LIVE MEMBERS</span>
+        <span class="live-indicator">
+          <i></i>
+          LIVE
+        </span>
+      </div>
+
+      <div class="member-count-wrap">
+        <span id="memberCount">---</span>
+      </div>
+
+      <div class="member-card-bottom">
+        <span>THE NEXUS VOID</span>
+        <span id="memberUpdate">SYNCING</span>
+      </div>
+
+    </div>
+
+    <div class="theme-card">
+
+      <div class="theme-card-header">
+        <div>
+          <span class="theme-label">TIME MODE</span>
+          <span id="currentTimeMode">NIGHT</span>
+        </div>
+
+        <span id="currentTime">--:--</span>
+      </div>
+
+      <div class="theme-switches">
+
+        <button class="theme-switch" data-theme-mode="morning">
+          <span class="theme-icon">☀</span>
+          <span>MORNING</span>
+        </button>
+
+        <button class="theme-switch" data-theme-mode="afternoon">
+          <span class="theme-icon">◐</span>
+          <span>AFTERNOON</span>
+        </button>
+
+        <button class="theme-switch active" data-theme-mode="night">
+          <span class="theme-icon">☾</span>
+          <span>NIGHT</span>
+        </button>
+
+      </div>
+
+      <div class="theme-auto-status">
+        <span class="status-dot"></span>
+        <span id="themeAutoStatus">AUTO TIME DETECTION</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="void-section" id="linksSection">
+
+    <div class="section-heading">
+      <span class="section-index">03</span>
+      <div>
+        <h2>NETWORK</h2>
+        <p>IMPORTANT LINKS</p>
+      </div>
+    </div>
+
+    <nav class="void-links">
+
+      <a
+        href="https://www.chess.com/clubs/forum/the-nexus-void"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="void-link"
+      >
+        <span class="link-number">01</span>
+
+        <div class="link-content">
+          <span class="link-title">FORUM</span>
+          <span class="link-subtitle">COMMUNITY DISCUSSIONS</span>
+        </div>
+
+        <span class="link-arrow">↗</span>
+      </a>
+
+      <a
+        href="https://www.chess.com/clubs/events/the-nexus-void"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="void-link"
+      >
+        <span class="link-number">02</span>
+
+        <div class="link-content">
+          <span class="link-title">EVENTS</span>
+          <span class="link-subtitle">UPCOMING CLUB EVENTS</span>
+        </div>
+
+        <span class="link-arrow">↗</span>
+      </a>
+
+      <a
+        href="https://www.chess.com/club/the-nexus-void/announcements"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="void-link"
+      >
+        <span class="link-number">03</span>
+
+        <div class="link-content">
+          <span class="link-title">ANNOUNCEMENTS</span>
+          <span class="link-subtitle">LATEST CLUB UPDATES</span>
+        </div>
+
+        <span class="link-arrow">↗</span>
+      </a>
+
+    </nav>
+
+  </section>
+
+</main>
+
+<footer class="void-footer">
+
+  <div class="footer-line"></div>
+
+  <div class="footer-content">
+    <span>NEXUS VOID</span>
+    <span id="systemClock">--:--:--</span>
+  </div>
+
+</footer>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
