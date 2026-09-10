@@ -992,23 +992,92 @@ a {
 
 @media (min-width: 700px) {
   .void-shell {
-    max-width: 680px;
-    margin: 0 auto;
-    border-right: 1px solid var(--line);
-    border-left: 1px solid var(--line);
-  }
-
-  .void-main {
-    padding: 32px;
+    width: 100%;
+    min-width: 100%;
+    max-width: none;
+    margin: 0;
   }
 
   .void-header {
-    padding: 24px 32px 22px;
+    padding: 26px clamp(28px, 4vw, 72px) 24px;
+  }
+
+  .void-header::after {
+    left: clamp(28px, 4vw, 72px);
+  }
+
+  .void-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    align-items: start;
+    gap: 28px;
+    padding: clamp(28px, 4vw, 64px);
+  }
+
+  #matchesSection {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  #socialsSection {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  #linksSection {
+    grid-column: 2;
+    grid-row: 2;
   }
 
   .void-footer {
-    padding-right: 32px;
-    padding-left: 32px;
+    padding-right: clamp(28px, 4vw, 72px);
+    padding-left: clamp(28px, 4vw, 72px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .void-main {
+    grid-template-columns: minmax(0, 1.35fr) minmax(360px, 0.65fr);
+    gap: 36px;
+  }
+
+  .void-section {
+    gap: 18px;
+  }
+
+  .match-calendar-card,
+  .member-card,
+  .theme-card {
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .void-header {
+    padding-right: 7vw;
+    padding-left: 7vw;
+  }
+
+  .void-header::after {
+    left: 7vw;
+  }
+
+  .void-main {
+    grid-template-columns: minmax(600px, 1.45fr) minmax(400px, 0.75fr);
+    gap: 48px;
+    padding: 56px 7vw 72px;
+  }
+
+  .void-footer {
+    padding-right: 7vw;
+    padding-left: 7vw;
+  }
+}
+
+@media (max-width: 699px) {
+  .void-main {
+    display: flex;
+    flex-direction: column;
   }
 }
 
