@@ -1,5 +1,5 @@
 const CONFIG = {
-  clubUrl: "https://www.chess.com/club/the-nexus-void",
+  clubUrl: "https://api.chess.com/pub/club/the-nexus-void",
   clubSlug: "the-nexus-void",
 
   calendarApi: "",
@@ -149,25 +149,17 @@ async function fetchClubData() {
   try {
     elements.connectionStatus.textContent = "SYNCING";
 
-    const response = await fetch(CONFIG.clubUrl, {
-      method: "GET"
-    });
+    const response = await fetch(CONFIG.clubUrl);
 
     if (!response.ok) {
       throw new Error("Unable to retrieve club data");
     }
 
-    const text = await response.text();
+    const data = await response.json();
 
-    const memberMatch =
-      text.match(/([\d,]+)\s+Members/i) ||
-      text.match(/membersCount["']?\s*[:=]\s*["']?(\d+)/i);
+    const memberValue = Number(data.members_count);
 
-    if (memberMatch) {
-      const memberValue = Number(
-        memberMatch[1].replace(/,/g, "")
-      );
-
+    if (Number.isFinite(memberValue)) {
       state.memberCount = memberValue;
 
       elements.memberCount.textContent =
@@ -176,18 +168,23 @@ async function fetchClubData() {
       elements.memberUpdate.textContent =
         "LIVE SYNC";
     } else {
+      elements.memberCount.textContent = "---";
       elements.memberUpdate.textContent =
-        "CLUB DATA READY";
+        "COUNT UNAVAILABLE";
     }
 
     elements.connectionStatus.textContent = "ONLINE";
+
   } catch (error) {
-    elements.connectionStatus.textContent = "ONLINE";
+    console.error("Club data error:", error);
+
+    elements.connectionStatus.textContent = "OFFLINE";
 
     elements.memberUpdate.textContent =
       "UPDATE UNAVAILABLE";
   }
 }
+
 
 function getRelativeTime(dateValue) {
   const date = new Date(dateValue);
