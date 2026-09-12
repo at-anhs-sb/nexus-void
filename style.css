@@ -410,6 +410,240 @@ a {
   justify-content: space-between;
 }
 
+.newest-members-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      transparent 55%
+    ),
+    var(--surface);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 16px 40px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(18px);
+  transition:
+    border-color var(--transition),
+    background 0.8s ease,
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.newest-members-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 1px;
+  background: var(--accent);
+  box-shadow:
+    0 0 16px var(--accent-glow);
+}
+
+.newest-members-card:hover {
+  border-color: var(--line-bright);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 20px 50px rgba(0, 0, 0, 0.22),
+    0 0 30px var(--accent-soft);
+}
+
+.newest-members-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.newest-members-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.newest-members-header > span {
+  color: var(--accent);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.newest-members-subtitle {
+  color: var(--text-muted);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.46rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+/* Scrollable member list */
+.newest-members-list {
+  height: 260px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-secondary) transparent;
+}
+
+/* WebKit scrollbar */
+.newest-members-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.newest-members-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.newest-members-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--accent-secondary);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.newest-members-list::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-bright);
+}
+
+/* Individual member */
+.newest-member {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  transition:
+    background var(--transition),
+    padding var(--transition);
+}
+
+.newest-member:last-child {
+  border-bottom: 0;
+}
+
+.newest-member:hover {
+  padding-left: 20px;
+  background: var(--accent-soft);
+}
+
+.newest-member-number {
+  width: 24px;
+  flex: 0 0 24px;
+  color: var(--accent);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.newest-member-name {
+  min-width: 0;
+  overflow: hidden;
+  flex: 1;
+  color: var(--text);
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.newest-members-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 16px;
+  border-top: 1px solid var(--line);
+  color: var(--text-dim);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.42rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.newest-members-footer span:last-child {
+  color: var(--accent);
+}
+
+/* Loading state */
+.newest-members-list .member-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  color: var(--text-dim);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+}
+
+/* Empty state */
+.newest-members-list .member-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 20px;
+  color: var(--text-dim);
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 360px) {
+  .newest-members-list {
+    height: 230px;
+  }
+
+  .newest-member {
+    min-height: 54px;
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .newest-member:hover {
+    padding-left: 17px;
+  }
+
+  .newest-members-header {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .newest-members-footer {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+}
+
+@media (min-width: 700px) {
+  .newest-members-list {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .newest-members-card {
+    border-radius: 20px;
+  }
+
+  .newest-members-list {
+    height: 320px;
+  }
+}
+
 .calendar-card-header {
   padding: 14px 16px;
   border-bottom: 1px solid var(--line);
